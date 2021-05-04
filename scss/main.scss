@@ -1,13 +1,12 @@
+@import './variables.scss';
 
-$primary-color: #272727;
-$accent-color: #ff652f;
 $text-color: #fff;
 $font-colors: (
-    "red": red,
-    "black": black,
-    "greenish": green
+  'red': red,
+  'black': black,
+  'greenish': green,
 );
 body {
-    background: $primary-color;
-    color: map-get($font-colors , greenish )
+  background: $primary-color;
+  color: map-get($font-colors, greenish);
 }
