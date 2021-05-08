@@ -23,9 +23,8 @@ body {
 nav {
   display: flex;
   align-items: center;
-  // margin: 8rem;
   width: 80%;
-  max-width: 40rem;
+  max-width: 50rem;
   margin: 8rem auto 0 auto;
   padding: 0.5rem;
   border: blue 3px solid;
@@ -51,6 +50,10 @@ nav {
   .button-container {
     padding: 0 1rem;
   }
+
+  .last-item {
+    margin-left: auto;
+  }
   .icon-style {
     position: relative;
     top: 0.1rem;
@@ -62,14 +65,71 @@ nav {
   label {
     height: 200%;
   }
-  input[type='text'] {
-    background: none;
-    height: 2rem;
-    border: $secondary-color 3px solid;
-    border-radius: 0%;
-    // height: 1rem;
-    &::placeholder {
-      color: $primary-color;
+  #search-bar {
+    width: 50%;
+    margin: 0 auto;
+
+    input[type='text'] {
+      width: 70%;
+      max-width: 30rem;
+      background: none;
+      height: 2rem;
+      border: $secondary-color 3px solid;
+      // height: 1rem;
+      &::placeholder {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+#game-grid {
+  display: grid;
+  align-self: center;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  margin: 0 10%;
+  h1 {
+    text-align: center;
+    margin: 3em 0;
+    // transform: translateY(-20px);
+    // text-shadow: 4px 0px 5px rgba(0,0,0, 0.2);
+  }
+  // .card:first-child {
+  //   margin-top: 0;
+  // }
+  .card {
+    margin: 5em 0.5em;
+    // border: $dark-color solid 3px;
+    color: $secondary-color;
+    .temp-space {
+      width: 100%;
+      padding: 7em 0;
+      background-color: $secondary-color;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .card-caption {
+      border-top: $primary-color solid 3px;
+      background-color: $accent-color;
+      padding-bottom: 1em;
+      text-align: center;
+      h2 {
+        background-color: $primary-color;
+        padding: 0.25em 0;
+      }
+      p {
+        padding: 1em 1em 0 1em;
+        height: 10ch;
+        font-size: 1em;
+        text-align: center;
+      }
+      .card-grid {
+        display: flex;
+        align-content: center;
+        justify-content: space-evenly;
+      }
     }
   }
 }
