@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import './default/variables.scss';
 
 $text-color: #fff;
 $font-colors: (
@@ -6,81 +6,10 @@ $font-colors: (
   'black': black,
   'greenish': green,
 );
-//factory sets the default styles
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  border: none;
-}
+
 body {
   background: $primary-color;
   color: map-get($font-colors, greenish);
-}
-nav {
-  display: flex;
-  align-items: center;
-  width: 80%;
-  max-width: 50rem;
-  margin: 8rem auto 0 auto;
-  padding: 0.5rem;
-  border: blue 3px solid;
-  background-color: rgb(57, 151, 49);
-  position: relative;
-  #logo {
-    position: absolute;
-    left: 50%;
-    transform: translate(-45%);
-    display: flex;
-    top: -2.5rem;
-    h1 {
-      font-size: 2rem;
-      white-space: nowrap;
-      // display: inline;
-    }
-    img {
-      width: 6rem;
-
-      transform: translate(1rem, -35%);
-    }
-  }
-  .button-container {
-    padding: 0 1rem;
-  }
-
-  .last-item {
-    margin-left: auto;
-  }
-  .icon-style {
-    position: relative;
-    top: 0.1rem;
-    color: black;
-  }
-  a {
-    font-family: 4rem;
-  }
-  label {
-    height: 200%;
-  }
-  #search-bar {
-    width: 50%;
-    margin: 0 auto;
-
-    input[type='text'] {
-      width: 70%;
-      max-width: 30rem;
-      background: none;
-      height: 2rem;
-      border: $secondary-color 3px solid;
-      // height: 1rem;
-      &::placeholder {
-        color: $primary-color;
-      }
-    }
-  }
 }
 
 #game-grid {
