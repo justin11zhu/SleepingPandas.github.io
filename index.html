@@ -14,7 +14,7 @@
 
   <nav>
     <div id="logo">
-      <h1>Sleeping Panda</h1>
+      <h1>Sleeping Pandas Gaming</h1>
       <img src="./public/images/sleeping-panda-logo.png" alt="Sleeping Panda">
     </div>
     <!-- Icon goes to Page -->
@@ -29,8 +29,18 @@
     
   </div>
   <div class="button-container">
-    <input type="text" name="" id="" placeholder="Search">
-    
+    <form action="">
+    <input list="game-list" type="text" name="search-bar" id="search-bar" placeholder="Search">
+    <datalist id="game-list">
+      <option value="Chess"></option>
+      <option value="Tetris"></option>
+      <option value="Tic-Tac-Toe"></option>
+      <option value=""></option>
+    </datalist> 
+    <label for="search-bar">
+      <i class="fas fa-search icon-style"></i>
+    </label>
+  </form>
   </div>
   <div class="button-container">
     <i class="fas fa-cog icon-style"></i>

@@ -22,21 +22,30 @@ body {
 }
 nav {
   display: flex;
-  margin: 20% 10%;
+  align-items: center;
+  // margin: 8rem;
+  width: 80%;
+  max-width: 40rem;
+  margin: 8rem auto 0 auto;
   padding: 0.5rem;
   border: blue 3px solid;
   background-color: rgb(57, 151, 49);
   position: relative;
   #logo {
     position: absolute;
-    transform: translate(40%);
+    left: 50%;
+    transform: translate(-45%);
     display: flex;
-    top: -2rem;
+    top: -2.5rem;
     h1 {
+      font-size: 2rem;
+      white-space: nowrap;
+      // display: inline;
     }
     img {
-      width: 20%;
-      transform: translate(0, -65%);
+      width: 6rem;
+
+      transform: translate(1rem, -35%);
     }
   }
   .button-container {
@@ -50,9 +59,15 @@ nav {
   a {
     font-family: 4rem;
   }
+  label {
+    height: 200%;
+  }
   input[type='text'] {
     background: none;
-    border-bottom: $secondary-color 3px solid;
+    height: 2rem;
+    border: $secondary-color 3px solid;
+    border-radius: 0%;
+    // height: 1rem;
     &::placeholder {
       color: $primary-color;
     }
