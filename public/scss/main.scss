@@ -6,7 +6,55 @@ $font-colors: (
   'black': black,
   'greenish': green,
 );
+//factory sets the default styles
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+}
 body {
   background: $primary-color;
   color: map-get($font-colors, greenish);
+}
+nav {
+  display: flex;
+  margin: 20% 10%;
+  padding: 0.5rem;
+  border: blue 3px solid;
+  background-color: rgb(57, 151, 49);
+  position: relative;
+  #logo {
+    position: absolute;
+    transform: translate(40%);
+    display: flex;
+    top: -2rem;
+    h1 {
+    }
+    img {
+      width: 20%;
+      transform: translate(0, -65%);
+    }
+  }
+  .button-container {
+    padding: 0 1rem;
+  }
+  .icon-style {
+    position: relative;
+    top: 0.1rem;
+    color: black;
+  }
+  a {
+    font-family: 4rem;
+  }
+  input[type='text'] {
+    background: none;
+    border-bottom: $secondary-color 3px solid;
+    &::placeholder {
+      color: $primary-color;
+    }
+  }
 }
