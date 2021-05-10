@@ -57,15 +57,21 @@ document.addEventListener('DOMContentLoaded', () =>{
       const theBlocks = [lBlock, zBlock, sBlock, tBlock, oBlock, iBlock]
 
       let currentPosition = 4
+      let currentRotation = 0
+
+
+      //Random block
+      let random = Math.floor(Math.random() * theBlocks.length)
       let current = theBlocks[0][0]
 
 
+      //Draw tetris block
       function draw(){
           current.forEach(index => {
               squares[currentPosition + index].classList.add('block')
           })
       }
       
-      draw()
+
 
 })
