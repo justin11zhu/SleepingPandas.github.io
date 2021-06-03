@@ -9,6 +9,12 @@ nav {
   border: blue 3px solid;
   background-color: rgb(57, 151, 49);
   position: relative;
+  .hoverLink {
+    color: inherit;
+    &:active {
+      color: $primary-color;
+    }
+  }
   #logo {
     position: absolute;
     left: 50%;

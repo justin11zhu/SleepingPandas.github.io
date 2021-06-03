@@ -1,16 +1,6 @@
 @import './default/variables.scss';
 
 $text-color: #fff;
-$font-colors: (
-  'red': red,
-  'black': black,
-  'greenish': green,
-);
-
-body {
-  background: $primary-color;
-  color: map-get($font-colors, greenish);
-}
 
 #game-grid {
   display: grid;
@@ -26,26 +16,23 @@ body {
   // .card:first-child {
   //   margin-top: 0;
   // }
-  .card {
+  a {
     margin: 5em 0.5em;
+  }
+  .card {
     // border: $dark-color solid 3px;
     color: $secondary-color;
-    .temp-space {
-      width: 100%;
-      padding: 7em 0;
-      background-color: $secondary-color;
-    }
     img {
       width: 100%;
       height: auto;
     }
     .card-caption {
-      border-top: $primary-color solid 3px;
+      // border-top: $primary-color solid 3px;
       background-color: $accent-color;
       padding-bottom: 1em;
       text-align: center;
       h2 {
-        background-color: $primary-color;
+        // background-color: $primary-color;
         padding: 0.25em 0;
       }
       p {

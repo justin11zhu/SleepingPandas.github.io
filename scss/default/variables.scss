@@ -2,6 +2,13 @@ $primary-color: #272727;
 $secondary-color: #e7e7e7;
 $accent-color: #ff652f;
 
+$text-color: #fff;
+$font-colors: (
+  'red': red,
+  'black': black,
+  'greenish': green,
+);
+
 //factory sets the default styles
 *,
 *::before,
@@ -11,4 +18,9 @@ $accent-color: #ff652f;
   box-sizing: border-box;
   text-decoration: none;
   border: none;
+  outline: none;
+}
+body {
+  background: $primary-color;
+  color: map-get($font-colors, greenish);
 }

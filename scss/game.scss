@@ -1,0 +1,13 @@
+@import './default/variables.scss';
+
+body {
+  background: $primary-color;
+  color: map-get($font-colors, green);
+}
+#game {
+  width: 85%;
+  max-width: 70rem;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

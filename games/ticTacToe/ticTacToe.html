@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-tac-toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/game.css">
+    <script defer src="script.js"></script>
+
+  <script src="https://kit.fontawesome.com/6825fdcf28.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <a class="hoverLink" href="../../index.html">
+          <div id="logo">
+            <h1>Sleeping Pandas Gaming</h1>
+            <img src="../../images/sleeping-panda-logo.png" alt="Sleeping Panda">
+          </div>
+        </a>
+        <!-- Icon goes to Page -->
+      <div class="button-container">
+        <i class="fas fa-gamepad icon-style"></i>
+        <a href="">Games</a>
+    
+      </div>
+      <div class="button-container">
+        <i class="fas fa-trophy icon-style"></i>
+        <a href="">Most popular</a>
+        
+      </div>
+      <div id="search-bar">
+        <form action="">
+        <input list="game-list" type="text" name="search" id="search" placeholder="Search">
+        <datalist id="game-list">
+          <option value="Chess"></option>
+          <option value="Tetris"></option>
+          <option value="Tic-Tac-Toe"></option>
+          <option value=""></option>
+        </datalist> 
+        <label for="search">
+          <i class="fas fa-search icon-style"></i>
+        </label>
+      </form>
+      </div>
+      <div class="button-container last-item">
+        <i class="fas fa-cog icon-style"></i>
+        <a href="">Settings</a>
+        
+      </div>
+    </nav>
+    <div id="game">
+        <div class="scoreboard">
+            <div id="player1">
+                <h2>Player One</h2>
+                <h3 class = "align-center" id = "player1Score">0</h3>
+            </div>
+            <div id="player2">
+                <h2>Player Two</h2>
+                <h3 class = "align-center" id = "player2Score">0</h3>
+            </div>
+        </div>
+        <div class ="center-container">
+            <div class ="relative">
+            <table id="ttt-board">
+                <tr>
+                    <td class="cell" id="0"></td>
+                    <td class="cell" id="1"></td>
+                    <td class="cell" id="2"></td>
+                </tr>
+                <tr>
+                    <td class="cell" id="3"></td>
+                    <td class="cell" id="4"></td>
+                    <td class="cell" id="5"></td>
+                </tr>
+                <tr>
+                    <td class="cell" id="6"></td>
+                    <td class="cell" id="7"></td>
+                    <td class="cell" id="8"></td>
+                    <h3 id ="end-game"></h3>
+                </tr>
+                
+            </table>
+
+            </div>
+        <button id = "restartBtn" onclick="startGame()"> Restart</button>
+        </div>
+    </div>
+</body>
+</html>
