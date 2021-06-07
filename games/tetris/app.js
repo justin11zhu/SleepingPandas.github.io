@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
 
   //code to show next block
-  const displaySquares = document.querySelectorAll('mini-grid div')
+  const displaySquares = document.querySelectorAll('.mini-grid div')
   const displayWidth = 4
   const displayIndex = 0
   const upNextBlock = [
