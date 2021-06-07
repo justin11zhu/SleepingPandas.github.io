@@ -24,6 +24,13 @@ const winCombos = [
   [2, 4, 6],
 ];
 
+// Mutiplayer
+const socket = io();
+// console.log('object');
+socket.on('console', message => {
+  console.log(message);
+});
+
 const cells = document.querySelectorAll('.cell');
 let tttBoard;
 function startGame() {
@@ -52,6 +59,8 @@ function clickBoard(squareId) {
   else currentPlayer = player2;
   let clickedCell = document.getElementById(squareId);
   if (clickedCell.style.cursor === 'pointer') {
+    //Emitting squareId to server
+    socket.emit('clickBoard', squareId);
     document.querySelector('#end-game').style.display = 'none';
     clickedCell.innerText = currentPlayer.icon;
     tttBoard[squareId] = currentPlayer.icon;
@@ -85,6 +94,31 @@ function checkWin(player) {
     }
   }
   return false;
+}
+
+//Mutiplayer Handler for the Server
+socket.on('clickBoardHandler', squareId => {
+  clickBoard(squareId);
+});
+
+socket.on('restartHanlder', player1TurnHandler => {
+  console.log('restarting game');
+  player1Turn = player1TurnHandler;
+  startGame();
+});
+
+//
+
+//Make unique ID
+function makeid(length) {
+  var result = '';
+  var characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
 }
 // function checkTie() {
 //   let temp = '';
