@@ -25,7 +25,7 @@ const winCombos = [
 ];
 
 // Mutiplayer
-const socket = io();
+const socket = io('https://sleepingpandagaming.herokuapp.com/');
 // console.log('object');
 socket.on('console', message => {
   console.log(message);
