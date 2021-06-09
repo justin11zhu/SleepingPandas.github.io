@@ -12,7 +12,7 @@ const player2 = {
   iconColor: 'blue',
   score: 0,
 };
-let player1Turn = true;
+let player1Turn;
 const winCombos = [
   [0, 1, 2],
   [3, 4, 5],
@@ -33,6 +33,14 @@ socket.on('console', message => {
 
 const cells = document.querySelectorAll('.cell');
 let tttBoard;
+
+const init = () => {
+  player1.score = 0;
+  player2.score = 0;
+  player1Turn = true;
+  startGame();
+  socket.emit('newGame');
+};
 function startGame() {
   let playerName;
   if (player1Turn) playerName = player1.name;
@@ -49,7 +57,7 @@ function startGame() {
   }
 }
 
-startGame();
+init();
 function squaretoId(square) {
   clickBoard(square.target.id);
 }
@@ -95,31 +103,64 @@ function checkWin(player) {
   }
   return false;
 }
+function unknownCode() {
+  alert('Unknown Game Code');
+}
+
+function tooManyPlayers() {
+  alert('This game is already in progress');
+}
+
+const joinGame = () => {
+  const joinCode = document.getElementById('joinCodeInput').value;
+  document.getElementById('joinCodeInput').value = '';
+  console.log(`Join Code entered was ${joinCode}`);
+  socket.emit('joinGame', joinCode);
+};
+
+const gameCode = joinCode => {
+  console.log(joinCode);
+  document.getElementById('joinCode').innerText = joinCode;
+};
+
+const codeSuccessful = () => {
+  document.getElementById('joinCode-container').style.visibility = 'hidden';
+  alert('You have succesfully joined');
+};
+
+const userJoined = () => {
+  document.getElementById('joinCode-container').style.visibility = 'hidden';
+  alert('Someone has joined your game');
+};
+
+//Socket On
 
 //Mutiplayer Handler for the Server
 socket.on('clickBoardHandler', squareId => {
   clickBoard(squareId);
 });
-
+//Restart Handler for the Server
 socket.on('restartHanlder', player1TurnHandler => {
   console.log('restarting game');
   player1Turn = player1TurnHandler;
   startGame();
 });
 
-//
+//UnknownCode Handle for the Server
+socket.on('unknownCodeHandler', unknownCode);
+//Catch if there are too many players
+socket.on('tooManyPlayersHandler', tooManyPlayers);
+
+//Handle joinCode
+socket.on('gameCodeHandler', gameCode);
+
+//If code is valid hides their own
+socket.on('codeSucessfulHandler', codeSuccessful);
+
+socket.on('userJoinedHandler', userJoined);
 
 //Make unique ID
-function makeid(length) {
-  var result = '';
-  var characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  var charactersLength = characters.length;
-  for (var i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-}
+
 // function checkTie() {
 //   let temp = '';
 //   for (let i = 0; i < tttBoard.length; i++) {
