@@ -8,7 +8,15 @@ document.addEventListener('DOMContentLoaded', () =>{
   const width = 10
   let nextRandom = 0;
   let timerId
-
+  let score = 0
+  const colors = [
+    'orange',
+    'red',
+    'black',
+    'purple',
+    'green',
+    'blue'
+  ]
 
 
 
@@ -70,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   function draw(){
     current.forEach(index => {
       squares[currentPosition + index].classList.add('block')
+      squares[currentPosition + index].style.backgroundColor = colors[random]
     })
   }
  
@@ -77,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   function undraw(){
     current.forEach( index => {
       squares[currentPosition + index].classList.remove('block')
+      squares[currentPosition + index].style.backgroundColor = ''
     })
   }
   
@@ -102,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () =>{
       timerId = null
     } else {
       draw()
-      timerId = setInterval(moveDown, 1000)
+      timerId = setInterval(moveDown, 333)
       nextRandom = Math.floor(Math.random()*theTetrominoes.length)
       displayShape()
     }
@@ -127,7 +137,8 @@ document.addEventListener('DOMContentLoaded', () =>{
       currentPosition = 4
       draw()
       displayShape()
-
+      addScore()
+      gameOver()
     }
   }
 
@@ -215,11 +226,54 @@ document.addEventListener('DOMContentLoaded', () =>{
   function displayShape() {
     displaySquares.forEach(square => {
       square.classList.remove('block')
-      // square.getElementsByClassName.backgroundColor = ''
+      square.style.backgroundColor = ''
     })
     upNextBlock[nextRandom].forEach( index => {
       displaySquares[displayIndex + index].classList.add('block')
-      // displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
+      displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
     })
   }
+
+  //function to increase score when row is complete
+  function addScore() {
+    //loop through each row
+    var lineClears = 0
+    for(let i=0; i<199; i+=width){
+      const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9]
+      if(row.every(index => squares[index].classList.contains('taken'))){
+        lineClears += 1 
+        //remove current row when it is filled
+        row.forEach(index => {
+          squares[index].classList.remove('taken')
+          squares[index].classList.remove('block')
+          squares[index].style.backgroundColor = ''
+        })
+        //add new row to game grid to replace removed row
+        const squaresRemoved = squares.splice(i, width)
+        squares = squaresRemoved.concat(squares)
+        squares.forEach(cell => grid.appendChild(cell))
+      }
+    }
+    //Add score depending on how many lines were cleared with one block
+    if(lineClears === 1){
+      score += 100
+    } else if(lineClears === 2){
+      score += 200
+    } else if(lineClears === 3){
+      score += 400
+    } else if(lineClears === 4){
+      score += 800
+    }
+    scoreDisplay.innerHTML = score
+  }
+
+  //function to check when player has lost
+  function gameOver() {
+    if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
+      scoreDisplay.innerHTML = 'game over'
+      clearInterval(timerId)
+    }
+  }
+
+
 })
