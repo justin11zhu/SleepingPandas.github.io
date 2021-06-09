@@ -25,7 +25,13 @@ const winCombos = [
 ];
 
 // Mutiplayer
-const socket = io('https://sleepingpandagaming.herokuapp.com/');
+const socket = io('https://sleepingpandagaming.herokuapp.com/')({
+  cors: {
+    origin: [
+      'https://justindood.github.io/SleepingPandas.github.io/games/ticTacToe/ticTacToe.html',
+    ],
+  },
+});
 // console.log('object');
 socket.on('console', message => {
   console.log(message);
