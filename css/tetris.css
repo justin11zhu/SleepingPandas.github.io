@@ -1,3 +1,12 @@
+.game {
+  margin-top: 2.5rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,6 +29,10 @@
   height: 20px;
 }
 
+.grid div:not(.taken) {
+  outline: 1px rgba(73, 73, 73, 0.6) solid;
+}
+
 .block {
   background-color: blue;
 }
@@ -37,6 +50,7 @@
 }
 
 .mini-grid div {
+  outline: 1px rgba(73, 73, 73, 0.4) solid;
   height: 20px;
   width: 20px;
 }

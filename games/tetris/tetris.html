@@ -9,20 +9,22 @@
   <script src="https://kit.fontawesome.com/6825fdcf28.js" crossorigin="anonymous"></script>
   <title>Sleeping Pandas Gaming</title>
 
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../../css/tetris.css">
   <script defer src="./app.js" charset="UTF-8"></script>
 </head>
 <body>
   
   <!-- Nav Bar -->
   <nav>
-    <div id="logo">
-      <h1>Sleeping Pandas Gaming</h1>
-      <img src="../../images/sleeping-panda-logo.png" alt="Sleeping Panda">
-    </div>
-    <div class="button-container">
-      <i class="fas fa-gamepad icon-style"></i>
-      <a href="">Games</a>
+    <a class="hoverLink" href="../../index.html">
+      <div id="logo">
+        <h1>Sleeping Pandas Gaming</h1>
+        <img src="../../images/sleeping-panda-logo.png" alt="Sleeping Panda">
+      </div>
+      <div class="button-container">
+        <i class="fas fa-gamepad icon-style"></i>
+        <a href="">Games</a>
+      </a>
       
     </div>
     <div class="button-container">
@@ -51,10 +53,10 @@
   </nav>
       
       
-      
+      <div class = game>
       <!-- Tetris Game -->
       <!-- Grid made of individual divs for the tetris blocks to be moved around-->
-    <h3>score:<span id="score">0</span></h3>
+    <h3>Score: <span id="score">0</span></h3>
     <button id="start-button">Start/Pause</button>
 
     <div class="container">
@@ -290,5 +292,6 @@
         <div></div>
       </div>
     </div>
+  </div>
   </body>
 </html>
